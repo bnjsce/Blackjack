@@ -102,10 +102,12 @@ while running:
 				score_text_inner = f"Dealer wins (five card trick)! You: {player.total} | Dealer: {dealer.total}"
 			elif len(player.cards) >= 5 and player.total <= 21 and len(dealer.cards) >= 5 and dealer.total <= 21:
 				score_text_inner = f"Both got a five card trick! You: {player.total} | Dealer: {dealer.total}"
-			elif player.total > 21:
-				score_text_inner = f"Dealer wins! You: {player.total} | Dealer: {dealer.total}"
-			elif dealer.total > 21:
-				score_text_inner = f"Dealer wins (five card trick)! You: {player.total} | Dealer: {dealer.total}"
+			elif player.total > 21 and dealer.total <= 21:
+				score_text_inner = f"You went bust! You: {player.total} | Dealer: {dealer.total}"
+			elif dealer.total > 21 and player.total <= 21:
+				score_text_inner = f"Dealer went bust! You: {player.total} | Dealer: {dealer.total}"
+			elif player.total == dealer.total and player.total > 21:
+				score_text_inner = f"Both went bust! You: {player.total} | Dealer: {dealer.total}"
 
 		else: 
 			if player.total > dealer.total and player.total <= 21:
