@@ -11,6 +11,7 @@ C_TABLE = "#0a6e1c"
 # setup
 WIDTH = 1280
 HEIGHT = 800
+target_fps = 10 # low framerate to control the time it takes to lay a card down on the table
 
 pg.init()
 screen = pg.display.set_mode((WIDTH, HEIGHT))
@@ -136,6 +137,6 @@ while running:
 
 	pg.display.update()
 	pg.display.flip()
-	clock.tick(144)
+	clock.tick(target_fps)
 
 pg.quit()
